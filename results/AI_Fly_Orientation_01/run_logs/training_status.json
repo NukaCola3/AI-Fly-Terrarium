@@ -1,0 +1,29 @@
+{
+    "AI_Fly": {
+        "checkpoints": [
+            {
+                "steps": 100040,
+                "file_path": "results/AI_Fly_Orientation_01/AI_Fly/AI_Fly-100040.onnx",
+                "reward": -0.3328334440787633,
+                "creation_time": 1791732275.2741735,
+                "auxillary_file_paths": [
+                    "results/AI_Fly_Orientation_01/AI_Fly/AI_Fly-100040.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 100040,
+            "file_path": "results/AI_Fly_Orientation_01/AI_Fly.onnx",
+            "reward": -0.3328334440787633,
+            "creation_time": 1791732275.2741735,
+            "auxillary_file_paths": [
+                "results/AI_Fly_Orientation_01/AI_Fly/AI_Fly-100040.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cpu"
+    }
+}

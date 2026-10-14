@@ -86,6 +86,26 @@ public class FlyAgent : Agent
         Vector3 localVelocity = transform.InverseTransformDirection(body.linearVelocity);
         sensor.AddObservation(Vector3.ClampMagnitude(localVelocity / 10f, 1f));
         sensor.AddObservation(transform.forward);
+
+        // v0.4.0: Position im selben weltachsenparallelen Bereich wie das Raster.
+        // Mittelpunkt = 0, untere Grenze = -1, obere Grenze = +1.
+        sensor.AddObservation(GetNormalizedPosition(body.position));
+    }
+
+    private Vector3 GetNormalizedPosition(Vector3 worldPosition)
+    {
+        Vector3 center = areaCenter != null ? areaCenter.position : Vector3.zero;
+        Vector3 offset = worldPosition - center;
+        return new Vector3(
+            NormalizePositionAxis(offset.x, areaSize.x),
+            NormalizePositionAxis(offset.y, areaSize.y),
+            NormalizePositionAxis(offset.z, areaSize.z));
+    }
+
+    private static float NormalizePositionAxis(float offset, float size)
+    {
+        // Ungültige Bereichsgrößen dürfen keine Division durch null erzeugen.
+        return size > 0f ? Mathf.Clamp(2f * offset / size, -1f, 1f) : 0f;
     }
 
     public override void OnActionReceived(ActionBuffers actions)
