@@ -241,11 +241,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuralNetworkVisualizer
   maxEpochs: 10000
-  epochsPerFrame: 10
+  epochsPerFrame: 1
   learningRate: 0.5
   trainAutomatically: 1
   nodeSize: {x: 58, y: 36}
   showWeights: 1
+  historyEveryEpochs: 25
 --- !u!4 &1924807293
 Transform:
   m_ObjectHideFlags: 0
